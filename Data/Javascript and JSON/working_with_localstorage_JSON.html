@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Working with Localstorage and JSON</title>
+</head>
+<body>
+<p><em>Open the console to see what is going on.</em></p>
+<h1>This is were the data should appear</h1>
+
+<script type="text/javascript">
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -	
+	// 1) First let's define an object with some data we would like to use
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	var data = {
+		"firstName": "Jimi",
+		"lastName": "Hendrix",
+		"age": 27, 
+		"title": "God of Rock Music", 
+		"genres": ["Rock","Psychedelic Rock", "Hard Rock"]
+	}
+
+		// Then let's take a look at the data in the console
+			console.group("1) The data as an object");	
+			console.log(data);
+			console.groupEnd();
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	// 2) Now the data can be converted from an object (in javascript memory) to a JSON text string
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	var jsonString = JSON.stringify(data);
+
+		// Compare this text string to the previous object
+			console.group("2) Converted to a JSON string");
+			console.log(jsonString);
+			console.groupEnd();
+
+
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	// 3) Saving the data to localstorage
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	
+	localStorage.setItem("bob",jsonString);
+
+		console.warn("3) The data was now stored in localstorage. Check the Application tab.")
+		// Hint: Try to comment out setting the localstorage. Does the getItem beneath still work? Is the data still there?
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	// 4) Retrieving the data from localstorage
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	var musicDataLocalstorage = localStorage.getItem("our_data");
+
+		// Notice that the data we got out of localstorage was as a string. 
+			console.group("4) This is how the data was stored in localstorage");
+			console.log(musicDataLocalstorage);
+			console.groupEnd();
+
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	// 5) Time to parse it back into an object
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	var musicData = JSON.parse(musicDataLocalstorage);
+
+		//Now the string has been parse by Javascript and is turned back into an object. 
+			console.group("5) Now it is an object again");
+			console.log(musicData);
+			console.groupEnd();
+
+
+
+
+
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	// Bonus: Let's update the text node of the <h1> tag. Note the usage of  Template Literals
+
+	document.getElementsByTagName("h1")[0].innerText = `${musicData.firstName} ${musicData.lastName}`;
+	
+	// This is you could do it the "old" way, without template literals:
+	//	document.getElementsByTagName("h1")[0].innerText = musicData.firstName + " " + musicData.lastName;
+
+</script>
+</body>
+</html>

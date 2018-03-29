@@ -1,0 +1,1 @@
+This is also written in a new file.

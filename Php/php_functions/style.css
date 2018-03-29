@@ -1,0 +1,37 @@
+nav {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  height: 40px;
+  padding: 5px 10px;
+}
+ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 5px 0px 0px 0px;
+}
+
+li {
+  float: left;
+  margin-left: 10px;
+  outline: 1px solid #ccc;
+}
+a {
+  display: block;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+	color: #fff;
+	background-color: #999;
+}
+a.active {
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: #379AA6;
+  letter-spacing: 0.05em;
+}
+body {
+  background-color: rgb(118, 139, 85);
+}

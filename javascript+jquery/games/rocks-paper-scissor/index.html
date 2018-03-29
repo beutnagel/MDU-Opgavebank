@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, paper & scissors + fire?</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/game.js"> </script>
+</head>
+
+<body>
+  <main>
+    <h1>Rock, paper & scissors + fire?</h1>
+    <article id="rules">
+      <h3> Quick rules! </h3>
+      <p>Rock beats paper</p>
+      <p>Scissors beats paper </p>
+      <p>Paper beats rock </p>
+      <p>Fire beats everything. Everything!<br> </p>
+      <p> .. but only the computer can choose fire (small chance!)</p>
+      <p> Good luck! </p>
+    </article>
+    
+    <button onClick="playNow()" id="startGame"> Play! </button>
+    
+    <article id="gameArea">
+      
+      <section id="choiceUser">
+        <p>Your choice</p>
+      </section>
+      <section id="versus">
+       <p> VS. </p>
+     </section>
+     <section id="choiceComputer">
+      <p>Computer choice</p>
+    </section>
+    <section id="winner">
+      <p>Who will win?</p>
+    </section>
+  </article>
+  
+  <section id="uWinCount">
+   <p> User score </p>
+ </section>
+ <section id="cWinCount">
+   <p> Computer score </p>
+ </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flexbox Example</title>
+	<style type="text/css">
+		/* FLEXBOX LAYOUT */
+		main {
+		    display: flex;
+		    flex-wrap: wrap;
+		    justify-content: space-between;
+		}
+		section {
+			flex-grow: 1;
+		}
+
+		#a {
+		    order: 1;
+		}
+		#b {
+		    order: 2;
+		}
+		#c {
+		    order: 3;
+		}
+
+
+
+		@media (max-width: 600px) {
+			#a {
+			    order: 3;
+			}
+			#b {
+			    order: 2;
+			}
+			#c {
+			    order: 1;
+			}
+		}
+
+
+
+
+
+
+
+		/* general formatting */
+		section {
+		    width: 400px;
+		    height: 300px;
+		    background-color: green;
+		    margin: 0 5px;
+		    color: #fff;
+		    text-align: center;
+		}
+		header {
+			width: 100vw;
+		}
+
+		#a {
+		    background-color: rebeccapurple;
+		}
+		#b {
+		    background-color: brown;
+		}
+		#c {
+		    background-color: orange;
+		}
+	</style>
+</head>
+<body>
+  <main>
+  	<header>Header</header>
+    <section id="a">A section</section>
+    <section id="b">B section</section>
+    <section id="c">C section</section>
+  </main>
+  <footer>Footer</footer>
+</body>
+</html>

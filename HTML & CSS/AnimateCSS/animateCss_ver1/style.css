@@ -1,0 +1,31 @@
+body {
+	background-color: rgb(183, 191, 199);
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#box {
+	width: 200px;
+	height: 200px;
+	background-color: #7A9D71;
+	margin: 100px auto 0;
+}
+
+#action {
+	width: 200px;
+	height: 40px;
+	background-color: #C18CD1;
+	margin: 20px auto 0;
+	display: block;
+	color: #fff;
+	border: none;
+	font-size: 1.5em;
+	font-family: inherit;
+}
+h1#title {
+	font-size: 3em;
+	color: #333;
+	font-weight: normal;
+	text-align: center;
+	text-transform: capitalize;
+	font-family: inherit;
+}

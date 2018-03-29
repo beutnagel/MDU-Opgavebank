@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Animate.css example</title>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<section class="animated wobble"></section>
+	<button id="button">Press me!</button>
+
+<script>
+	var button = document.getElementById('button');
+	button.addEventListener("click",addClass, false);
+
+	function addClass() {
+		//console.log("function runs");
+		var section = document.getElementsByTagName('section')[0];
+		section.classList.toggle("wobble");
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+    "require": {
+        "mike182uk/cart": "^3.0",
+        "fpdo/fluentpdo": "^1.1",
+        "altorouter/altorouter": "^1.2"
+    }
+}

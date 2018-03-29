@@ -1,0 +1,122 @@
+/* 	- - - - - - - - - - - - - - - - - - - - - - 
+	Boilerplate CSS file
+	@author		jwb@beutnagel.dk
+	@project	Boilerplate
+	@date 		September, 2014		
+	- - - - - - - - - - - - - - - - - - - - - - */
+body {
+	background-color: #fff;
+	color: #ccc;
+}
+
+h1 {
+	font-family: arial, sans-serif;
+	font-size: 2em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+h2 {
+	font-family: arial, sans-serif;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+h3 {
+	font-family: arial, sans-serif;
+	font-size: 1.2em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+h4 {
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+h5 {
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+h6 {
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	font-style: normal;
+	color: inherit;
+}
+
+h1, h2, h3, p {
+	margin: 1em 0;
+}
+body {
+	padding: 1em;
+}
+
+input {
+	width: 100%;
+	display: block;
+	font-size: 1.5em;
+	line-height: 1em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	border: none;
+}
+button {
+	border: none;
+	background-color: #47ABC8;
+	font-size: 1.5em;
+	width: 100%;
+	padding: 0.2em;
+	color: #fff;
+}
+	button:hover {
+		background-color: #DADF5E;
+		cursor: pointer;
+		color: #FCFCF4;
+	}
+
+form {
+	width: 50%;
+	min-width: 400px;
+}
+
+body {
+	background-color: #486D75;
+	color: #BCD0D0;
+}
+
+
+/* 	- - - - - - - - - - - - - - - - - - - - - - 
+	@module			Main Menu 
+	@cssClass	 	.menu-main
+	@description	Main navigation on site
+	@phpFile		includes/menu_inc.php 
+	- - - - - - - - - - - - - - - - - - - - - - */
+
+.menu-main {
+	display: block;
+}
+.menu-main li {
+	display: inline-block;
+	max-width: 200px;
+	padding: 20px 10px;
+}
+.menu-main a {
+	text-decoration: none;
+	color: #ddd;
+}
+.menu-main a:hover {
+	color: #333;
+}
+
+
+
+
+

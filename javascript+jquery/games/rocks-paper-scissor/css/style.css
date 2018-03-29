@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#rules {
+	text-align: center;
+	width: auto;
+	border: 1px solid black;
+	margin: 0 auto;
+	padding: 10px;
+	background-color: #232323;
+	color: white;
+	font-size: 16px;
+}
+
+main {
+	width: 500px;
+	text-align: center;
+	margin: auto;
+}
+
+#startGame {
+	margin-top: 20px;
+	font-size: 25px;
+	padding: 20px;
+	width: 500px;
+	color: white;
+	background-color: #33C0FF;
+	border: 1px solid black;
+	text-shadow: 1px 2px black;
+	font-weight: bolder;
+}
+
+#choiceComputer {
+	font-size: 25px;
+	text-align: center;
+}
+
+#versus {
+	font-size: 18px;
+}
+
+#choiceUser {
+	font-size: 25px;
+	text-align: center;
+}
+#winner {
+	font-style: italic;
+	font-size: 20px;
+}
+#uWinCount {
+	width: 200px;
+	font-size: 18px;
+	float: left;
+	border: 1px solid black;
+	background-color: #64FFAD;
+}
+
+#cWinCount {
+	width: 200px;
+	font-size: 18px;
+	float: right;
+	border: 1px solid black;
+	background-color: #FF9D9E;
+}
+
+
+h1 {
+	padding: 15px;
+	font-size: 28px;
+	color: white;
+	background-color: #FF6366;
+	border: 1px solid black;
+	text-shadow: 1px 2px black;
+}
+
+p {
+	line-height: 15px;
+}
+
+#gameArea {
+	border: 1px solid black;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #D1D1D1
+}

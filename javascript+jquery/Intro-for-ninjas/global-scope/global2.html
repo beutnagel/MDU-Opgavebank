@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Global variables</title>
+	<script type="text/javascript" src="empty.js"></script>
+
+</head>
+<body>
+	<small><a href="global1.html"><- previous</a></small>
+
+	<h1>Let's explore global variables</h1>
+	<p>A global variable is any variable defined <em>outside any functions</em>.</p>
+	<p>The variables will be attached as properties of the global object.</p>
+	<p>Examine the following code in the console:</p>
+	<code style="white-space: pre-wrap;">
+	var name = "bob";
+
+	console.log(name); // "bob"
+
+	console.log(window.name); // "bob"
+	</code>
+
+	<script type="text/javascript">
+		var name = "bob";
+		console.log(name); // "bob"
+		console.log(window.name); // "bob"
+	</script>
+	<p>Try it your self by writing either "name" or "window.name" in the console!</p>
+</body>
+</html>

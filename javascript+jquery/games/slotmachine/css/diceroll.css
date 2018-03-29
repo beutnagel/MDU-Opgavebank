@@ -1,0 +1,30 @@
+/* CSS Document */
+
+li { 
+	
+		width: 36px;
+		background: F5F5F5;
+		border:#999 1.5px solid;
+		padding: 10px;
+		font-size: 28px;
+		text-align: center;
+		font-weight:bold;
+		margin: 5px;
+		list-style: none;
+		display: inline-block;
+}
+
+h2#status {
+		font-size: 22px;
+		color:#009;
+		clear:left;
+}
+
+button#btn{
+	margin-top: 50px;
+}
+
+button#rstbtn{
+	margin-top: 50px;
+}
+

@@ -1,0 +1,12 @@
+aside#modal-box {
+    width: 400px;
+    background-color: #4C8D9A;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.hide {
+	display: none;
+}

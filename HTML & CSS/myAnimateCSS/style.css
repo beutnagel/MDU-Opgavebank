@@ -1,0 +1,26 @@
+body {
+    background-color: #8ba2a2;
+}
+
+button {
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 1.3em;
+    background-color: #ce6d6d;
+    color: white;
+    margin: 2em auto;
+    width: 200px;
+    display: block;
+}
+
+button:hover {
+    background-color: #884343;
+    cursor: pointer;
+}
+
+section {
+    height: 400px;
+    width: 300px;
+    background-color: #deec94;
+    margin:  2em auto;
+}

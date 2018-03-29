@@ -1,0 +1,21 @@
+header {
+	display: grid;
+  	grid-template-columns: minmax(min-content, max-content) 1fr;
+}
+.mainMenu {
+    max-width: 500px;
+    margin: 1em auto;	
+}
+.mainMenu ul {
+	display: flex;
+	justify-content: center;
+}
+
+.mainMenu ul li {
+	list-style-type: none;
+	margin: 0 10px;
+}
+
+.primaryMenu {
+	border-bottom: 1px solid gray;
+}

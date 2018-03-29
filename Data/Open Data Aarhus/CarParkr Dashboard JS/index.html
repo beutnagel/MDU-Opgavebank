@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CarParkr - See live parking data from Aarhus</title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body> 
+<header>
+	<img src="logo.png">
+</header>
+<main>
+	<article class="card">
+		<h2 class="title">Nørreport</h2>
+		<div class="bar">
+			<div class="indicator"></div>
+		</div>
+		<dl class="stats">
+		    <dt>130</dt>
+		    <dd>Occupied</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>630</dt>
+		    <dd>Capacity</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>500</dt>
+		    <dd>Free</dd>
+	    </dl>
+	</article>
+	<article class="card">
+		<h2 class="title">Nørreport</h2>
+		<div class="bar">
+			<div class="indicator low"></div>
+		</div>
+		<dl class="stats">
+		    <dt>130</dt>
+		    <dd>Occupied</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>630</dt>
+		    <dd>Capacity</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>500</dt>
+		    <dd>Free</dd>
+	    </dl>
+	</article>
+	<article class="card">
+		<h2 class="title">Nørreport</h2>
+		<div class="bar">
+			<div class="indicator med" style="width:87%"></div>
+		</div>
+		<dl class="stats">
+		    <dt>130</dt>
+		    <dd>Occupied</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>630</dt>
+		    <dd>Capacity</dd>
+	    </dl>
+		<dl class="stats">
+		    <dt>500</dt>
+		    <dd>Free</dd>
+	    </dl>
+	</article>
+
+</main>
+<script type="text/javascript" src="garageNames.js"></script>
+<script type="text/javascript">
+
+
+console.log("let's start");
+
+
+// check that the garageNames are loaded
+console.log(garageNames);
+
+
+
+
+var data;
+var garageList = [];
+var output = "";
+var updateTime;
+
+
+// run our functions in chain
+getLiveData()
+.prepareData()
+.generateGarageList()
+.generateOutput()
+.checkEveryMinute();
+
+
+function checkEveryMinute() {
+	setTimeout(function(){ 
+		previous = updateTime;
+		console.log("checking for updated data");
+		getLiveData();
+		if(updateTime !== previous) { // if new data is available
+			console.log("NEW: the data was updated!");
+			output = ""; // reset output so we don't keep the previous output
+			console.log(updateTime);
+			prepareData().generateGarageList().generateOutput();
+		}
+		checkEveryMinute(); // call itself as recursive function
+	}, 10000);
+}
+
+/*	
+ *	return the clean name for a parking garage
+ *	use garageNames by comparing garageCode
+ */
+function getGarageName(garageCode) {
+	let garageName = null;
+
+	// loop through all the garages to find matching codes
+	for (let i = 0; i < garageNames.length; i++) {
+		if(garageNames[i].garageCode === garageCode) {
+			garageName = garageNames[i].garageName;
+			break; // ends the loop since we already found a match
+		} 
+	}
+	// If no garageName was found
+	if(garageName === null) {
+		console.warn("No garageName found for garageCode: "+garageCode);
+	} 
+
+	// return the name
+	return garageName;
+}
+
+
+
+
+
+
+function getLiveData() {
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("readystatechange", function () {
+	  if (this.readyState === 4) {
+	    data = this.responseText;
+	    //*console.log(data);
+		
+		// parse to JSON
+		data = JSON.parse(data);
+		//*console.log(data);
+	    
+	    updateTime = data.result.records[0].date;
+
+
+	  } 
+	});
+	xhr.open("GET", "http://portal.opendata.dk/api/action/datastore_search?resource_id=2a82a145-0195-4081-a13c-b0e587e9b89c",false);
+	xhr.send();
+
+	return this;
+}
+
+function prepareData() {
+
+
+	// we only need the records from the result
+	data = data.result.records;
+	console.log(data);
+
+	return this;
+}
+
+
+
+
+// let's generate the garages list
+function generateGarageList() {
+	/*	Garage List format
+
+		"name"			[string] 	cleaned name of the garage, e.g. "Kalkværksvej"
+		"occupancy"		[int] 		percentage occupied rate, e.g. 87
+		"occupied"		[int]		number of cars occupying the garage, e.g. 130
+		"capacity"		[int]		number of place in garage, e.g. 630
+		"free"			[int]		number of free places, e.g. 500
+		"indicator"		[string]	class name for indicaror, e.g. "med" or "high"
+	 */
+
+	// loop through each received data items 
+	for (var i = 0; i < data.length; i++) {
+		// add to garage list
+		garageList[i] = {
+			"name": getGarageName(data[i].garageCode),
+			"capacity": data[i].totalSpaces,
+			"occupied": data[i].vehicleCount,
+			"free": data[i].totalSpaces - data[i].vehicleCount,
+			"occupancy": Math.round((data[i].vehicleCount/data[i].totalSpaces)*100,2),
+		}
+	}
+	console.log(garageList);
+
+	return this;
+
+
+}
+
+
+function generateOutput() {
+	console.log("generating output for " + garageList.length + " garages");
+	console.log(garageList);
+	for (let i = 0; i < garageList.length; i++) {
+
+		// Skip rubish data (some are deprecated)
+		if(!garageList[i].name) {
+			console.group();
+			console.warn("skipping this one");
+			console.log(garageList[i]);
+			console.groupEnd();
+			continue;
+		}
+
+		// set the indicator value, used for the bar (CSS)
+		let indicator;
+		if(garageList[i].occupancy>75) {
+			indicator = "high";
+		} else if (garageList[i].occupancy>50) {
+			indicator = "med";
+		} else {
+			indicator = "low";
+		}
+
+
+
+		// using a template literal to output the html structure
+
+		output += `
+			<article class="card">
+			<h2 class="title">${garageList[i].name}</h2>
+			<div class="bar">
+				<div class="indicator ${indicator}" style="width:${garageList[i].occupancy}%"></div>
+			</div>
+			<dl class="stats">
+			    <dt>${garageList[i].occupied}</dt>
+			    <dd>Occupied</dd>
+		    </dl>
+			<dl class="stats">
+			    <dt>${garageList[i].capacity}</dt>
+			    <dd>Capacity</dd>
+		    </dl>
+			<dl class="stats">
+			    <dt>${garageList[i].free}</dt>
+			    <dd>Free</dd>
+		    </dl>
+		</article>
+		`;
+	}
+	//console.log(output);
+
+	// update the HTML
+	document.querySelector("main").innerHTML = output;
+
+	return this;
+}
+
+
+
+
+</script>
+</html>

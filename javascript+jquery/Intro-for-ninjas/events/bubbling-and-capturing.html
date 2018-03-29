@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Event bubbling and capturing</title>
+</head>
+<body>
+<p>Check the console, that's where the magic happens.</p>
+<ul>
+	<li>
+		<button id="capture">Click me (bubbling)</button>
+		<button id="bubble">Click me (capturing)</button>
+	</li>
+</ul>
+
+	
+<script type="text/javascript">
+	
+	//elm = document.getElementById('test1');
+
+	// 
+	/*elm.addEventListener("click", function (e) {
+		console.log(e.target);
+		console.log(e.eventPhase);
+	},true);
+*/
+
+
+
+
+  for(let elem of document.querySelectorAll('*')) {
+  	var id, bubble;
+    elem.addEventListener("click", e => {
+    	//this.bubble = e.target.getAttribute("id");
+    	//console.log(this.bubble	);
+/*    	this.bubble = (e.target.getAttribute("id") === "capture") ? true : false;
+    	console.log(this.bubble);
+*/    	console.log(phase(e.eventPhase)+`: ${elem.tagName}`)
+    }, false);
+  }
+
+
+/*  for(let elem of document.querySelectorAll('.bubble')) {
+    elem.addEventListener("click", e => {console.log(phase(e.eventPhase)+`: ${elem.tagName}`)}, false);
+  }
+
+*/
+  function phase(eventPhase) {
+  	switch(eventPhase) {
+  		case 1:
+	        return "Capturing"
+	        break;
+  		case 2:
+	        return "At target"
+	        break;
+  		case 3:
+	        return "Bubling"
+	        break;
+
+	    default:
+	        return "No event"
+  	}
+  }
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

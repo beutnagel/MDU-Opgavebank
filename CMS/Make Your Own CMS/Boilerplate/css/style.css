@@ -1,0 +1,75 @@
+body {
+	background-color: #333;
+	color: #ddd;
+}
+a {
+	color: #0f0;
+	text-decoration: none;
+}
+a:hover {
+	color: #f00;
+}
+h1 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+h2 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+h3 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+h4 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+h5 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+h6 {
+	font-size: 1em;
+	font-family: inherit;
+	font-weight: normal;
+	color: #00f;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - 
+	module: Main site menu
+	class: 	menu-main
+   - - - - - - - - - - - - - - - - - - - - - */
+.menu-main {}
+.menu-main li {
+	display: inline;
+}
+
+
+
+
+

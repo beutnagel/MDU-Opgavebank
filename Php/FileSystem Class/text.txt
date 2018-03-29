@@ -1,0 +1,12 @@
+<p>Php code in this file will only be read, but will not be processed by Php.</p>
+
+<em>Look at the HTML source code to see it.</em>
+
+<?php 
+// This is php code. I has not been processed by php
+$a = 1;
+$b = 10 * $a;
+echo "This php code will not be processed";
+echo $b;
+// This is because the file loaded as text and just inserted. If you want to execute php, use include() or require() instead.
+?>
