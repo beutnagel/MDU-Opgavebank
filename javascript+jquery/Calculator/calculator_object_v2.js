@@ -45,7 +45,8 @@ function calculator() {
 	this.number = (value) => {
 	  	if(display.textContent === "0") {
 	  		this.workingNumber = value;
-	  	} else {
+	  	} else if(this.workingNumber.length < 15) { // 15 is the max length of allowed input of number
+	  		console.log("current length: "+this.workingNumber.length);
 	  		this.workingNumber += value;
 	  	}
 	  	this.updateDisplay();
