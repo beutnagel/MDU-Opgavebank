@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag this bar</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		.bar {
+			background: orange; 
+			width:10%; 
+			height:40px;
+			max-width: 100%;
+		}
+		.bar:hover {
+			cursor: ew-resize;
+		}
+		.bar-container {
+			width: 100vw;
+			height: 40px;
+			max-width: 95vw;
+			background-color: gray;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+<h1>Drag this bar to change its width</h1>
+<section class="bar-container">
+	<div class="bar"></div>
+</section>
+<p class="display"></p>
+<script type="text/javascript">
+	// inspired and borrowed from http://eloquentjavascript.net/15_event.html
+	
+	let lastX; // Tracks the last observed mouse X position
+	let bar = document.querySelector(".bar");
+
+	let container = document.querySelector('.bar-container');
+	containerWidth = window.getComputedStyle(container,null).getPropertyValue("width");
+	console.log(containerWidth);
+
+	const display = document.querySelector(".display");
+
+
+	bar.addEventListener("mousedown", event => {
+		if (event.button == 0) {
+		  lastX = event.clientX;
+		  window.addEventListener("mousemove", moved);
+	  	  event.preventDefault(); // Prevent selection
+		}
+	});
+
+	function moved(event) {
+		if (event.buttons == 0) {
+		  window.removeEventListener("mousemove", moved);
+		} else {
+		  let dist = event.clientX - lastX;
+		  let newWidth = Math.max(10, bar.offsetWidth + dist);
+		  bar.style.width = newWidth + "px";
+		  lastX = event.clientX;
+		  let contWidth = parseFloat(containerWidth.replace("px",""));
+		  let barWidth = parseFloat(bar.style.width.replace("px",""));
+		  let persentage = Math.round(((barWidth/contWidth)*100));
+		  console.log(bar.style.width);
+		  console.log("the bar is now "+ persentage +"%");
+		  display.textContent = "the bar is now "+ persentage +"%";
+
+		}
+	}
+
+
+
+
+
+</script>
+</body>
+</html>
