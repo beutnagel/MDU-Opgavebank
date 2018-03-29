@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jarne's Mastermind</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>Jarne's Mastermind</h1>
+<main>
+</main>
+
+
+<script type="text/javascript" src="mastermind.js"></script>
+<script type="text/javascript">
+	console.log("Welcome to Jarne's Mastermind");
+
+	// initiate game options
+	var options = {
+		"level": "normal",
+		"container": "main",
+		"numberOfFields": 4,
+		"maxRounds": 10,
+	};
+
+	// create new game
+	var game = new Mastermind(options);
+
+	// start the game
+	game.start();
+
+
+</script>
+</body>
+</html>
