@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dropdown example</title>
+	<style type="text/css">
+		body {height: 100vh;}
+
+		/* Hide the divs with the content */
+		div {
+			display: none;
+		}
+
+		/* show the div with this class */
+		.show {display: block;}
+
+		/* place and style the divs  */
+		.underfilter div {
+			position: absolute;
+			padding: 1em;
+			border: 1px solid black;
+		}
+
+		/* styling the buttons */
+		.dropdownBtn {
+			background-color: none;
+			border: none;
+			font-size: 1em;
+		}
+	</style>
+</head>
+<body>
+
+<nav class="underfilter">
+	<button class="dropdownBtn">Menu 1</button>
+	<div>Super dropdown content for menu 1</div>
+	<button class="dropdownBtn">Menu 2</button>
+	<div>This is also some nice content for menu 2</div>
+	<button class="dropdownBtn">Menu 3</button>
+	<div>menu 3 has this as content</div>
+	<button class="dropdownBtn">Menu 4</button>
+	<div>poor menu 4 didn't have any content at all to show!</div>
+</nav>
+
+<script type="text/javascript">
+	// add an eventlistener to the .underfilter container element
+	document.querySelector('.underfilter').addEventListener("click", function (e) {
+	  
+	  // make sure that we clicked on a button element
+	  if(e.target.nodeName === "BUTTON") {
+		console.log(e.target.nodeName);
+		console.log(e.target.nextElementSibling);
+		
+		// The next element is the div we want to show
+		let nextElement = e.target.nextElementSibling;
+
+		// If it already has a show class, then remove all
+		if(nextElement.className === "show") {
+			removeAllShowClasses();
+		} else {
+			// remove all classes
+			removeAllShowClasses();
+			// and then add a "show" class on this element
+			nextElement.className = "show";
+		}
+		// this stops the event from bubling up to the body
+		e.stopPropagation();
+	  }	
+	});
+
+	function removeAllShowClasses() {
+		// remove all classes from the divs
+		document.querySelectorAll(".underfilter div").forEach(
+			function(elm) {
+				console.log(elm.className = "");
+			}
+		);
+	}
+
+	// Click event on the body that removes all the show classes, so that when the user clicks outside the menu they are hidden again
+	document.querySelector("body").addEventListener("click", function () {
+		console.log("clicked on body");
+		removeAllShowClasses();
+	});
+
+</script>
+</body>
+</html>
