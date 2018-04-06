@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Full Screen Video background</title>
+	<script type="text/javascript" src="video-background.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+	<style type="text/css">
+		video {width: 100vw;}
+		.video-background {
+			position: fixed;
+		    top: 0;
+		    left: 0;
+		    z-index: -1;
+		}
+		.video-interface {
+			background-color: #fff;
+			padding: 1em;
+			margin: 1em 0 0;
+			opacity: 0.8;
+		}
+		body {
+			padding: 0;
+			margin:0;
+			font-family: Lato, sans-serif;
+			background-color: #191115;
+		}
+		.title {
+			font-family: Lato, sans-serif;
+			font-size: 2em;
+			font-weight: normal;
+		}
+	</style>
+</head>
+<body>
+
+<main class="video-background"></main>
+<aside class="video-interface">
+	<h2 class="title">1 out of 10 is secretly a Rick & Morty fan.</h2>
+	<p>Although the show has enjoyed a lot of commercial success, it's mature content and toilet humor means that a lot of people are too ashamed to admit that they enjoy the show.</p>
+	<footer>&copy; Video from <a href="https://videos.pexels.com/videos/video-of-people-walking-855564">Pexels</a></footer>
+</aside>
+
+<video src="https://videos.pexels.com/videos/video-of-people-walking-855564" autoplay=""></video>
+
+
+<script type="text/javascript">
+    console.log("page loaded");
+    const options = {
+    	fullscreen: true,
+    	containerElement: ".video-background",
+    	source: "video.mp4",
+    };
+    const video = new VideoBackground(options);
+    console.log("new video object created");
+    console.log(video);
+</script>
+</body>
+</html>
