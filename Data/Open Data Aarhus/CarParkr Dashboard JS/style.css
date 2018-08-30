@@ -3,6 +3,11 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+main {
+ 	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+ }
 
 /* STATS ITEMS */
 dl.stats {
@@ -35,7 +40,6 @@ dl.stats {
     border-radius: 12px;
     padding: 20px 10px;
     text-align: center;
-    display: inline-block;
     margin: 20px;
 }
 	h2 {
