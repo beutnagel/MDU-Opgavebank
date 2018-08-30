@@ -1,0 +1,52 @@
+* {margin:0; padding:0;}
+
+body {
+	background-image: url('assets/colorlib-wordpress-webshop-themes.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	min-width: 100vw;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100vw;
+}
+
+
+/* Modal box specific styling */
+.overlay {
+	background-color: rgba(255, 255, 255, 0.5);
+	min-height: 100vh;
+	min-width: 100vw;
+	position: fixed;
+}
+.modal {
+	position: fixed;
+	right: 1em;
+	bottom: 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	min-width: 300px;
+	min-height: 300px;
+	padding: 2em;
+	box-sizing: border-box;
+	transition: all ease-in 1s;
+}
+
+
+/* Hidden state */
+.overlay--hidden {
+  display: block;
+  animation: fade 800ms ease-in-out both;
+}
+.overlay--hidden .modal {
+	bottom: -500px;
+}
+
+/* Fade the opacity */
+@keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}

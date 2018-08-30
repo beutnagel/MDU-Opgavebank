@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700|Merriweather+Sans:800);
+
+body {
+    background: #5f545a;
+    color: #faf1e0;
+    font-weight: 300;
+    font-family: 'Lato', Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+html,h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+main {
+	background: #67c2d4;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	position: relative;
+	z-index: 2;
+	transition: all 5s;
+}
+main.hide {
+	position: absolute;
+	height: 100vh;
+	overflow: hidden;
+	transition: all 0s;
+}
+
+button {
+	width: 300px;
+    height: 80px;
+	position: relative;
+    padding: 0 1em;
+    border: none;
+    background-color: #e85657;
+    color: #f9f6e5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    line-height: 80px;
+    overflow: hidden;
+    top: 0;
+    transition: height 1s, width 1s, top 2s, color 0.5s;
+}
+button.show {
+	position: relative;
+	width: 200vw;
+	height: 200vh;
+	z-index: 3;
+	color: #e85657;
+	top: -100vh;
+}
+
+aside {
+	position: absolute;
+	z-index: 4;
+	top: 0;
+	left: 0;
+    background-color: #e85657;
+    color: #f9f6e5;
+    padding: 2em;
+    transition: opacity 5s;
+   
+	display: none;
+    opacity: 0;
+}
+
+aside.show {
+    animation: overlayContent 1s 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  	display: block;
+	transition: all 0s;
+}
+aside.show.fade {
+	opacity: 0;
+}
+@keyframes overlayContent {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
+
+
+
+.close { 
+	width: 50px;
+	position: absolute;
+	right: 2em;
+	top: 1em;
+}
+.close:hover {
+   cursor: pointer;
+	}
+
+.close:hover .close-x {
+  stroke: black;
+}
+
+svg {
+  display: block;
+}
+
+.close-x {
+  stroke: white;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+.close-x:hover {
+}

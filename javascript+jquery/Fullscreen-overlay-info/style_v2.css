@@ -1,0 +1,164 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700|Merriweather+Sans:800);
+
+body {
+    background: #5f545a;
+    color: #faf1e0;
+    font-weight: 300;
+    font-family: 'Lato', Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+html,h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+}
+main {
+	background: #67c2d4;
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	position: relative;
+	z-index: 2;
+	transition: all 5s;
+}
+main.hide {
+	position: absolute;
+	height: 100vh;
+	overflow: hidden;
+	transition: all 0s;
+}
+
+button {
+	width: 300px;
+    height: 80px;
+	position: relative;
+    padding: 0 1em;
+    border: none;
+    background-color: #e85657;
+    color: #f9f6e5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    line-height: 80px;
+    overflow: visible;
+    transition: color 1s;
+    transition-delay: 2s;
+    top:0;
+    z-index: 5;
+
+}
+/*button.show {
+	position: fixed;
+    animation: fullscreen 2s;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+}*/
+button.show {
+	color: #e85657;
+    transition: color 1s;
+}
+
+aside {
+	position: relative;
+	z-index: 4;
+    background-color: transparent;
+    color: #f9f6e5;
+    padding: 2em;
+    transition: opacity 5s;
+   
+/*	display: none;
+*/    opacity: 0;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+aside.show {
+/*    animation: overlayContent 1s 1;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;*/
+  	display: block;
+	opacity: 1;
+    transition: opacity 5s;
+
+}
+/*aside.show.fade {
+	opacity: 0;
+}*/
+/*@keyframes overlayContent {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+*/
+
+
+
+
+
+.close { 
+	width: 50px;
+	position: absolute;
+	right: 2em;
+	top: 1em;
+}
+.close:hover {
+   cursor: pointer;
+	}
+
+.close:hover .close-x {
+  stroke: black;
+}
+
+svg {
+  display: block;
+}
+
+.close-x {
+  stroke: white;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+.close-x:hover {
+}
+
+
+
+.background {
+	background-color: #e95657;
+    transition: all 5s;
+    display: block;
+    height: 80px;
+    width: 300px;
+    position: absolute;
+    transition: width 2s, height 2s, transform 2s;
+/*    animation: fullscreen 2s;
+*//*     top: 50%; 
+     left: 50%;*/ 
+
+    margin-top: -80px;
+    margin-left: 0px;
+    z-index: 3;
+}
+
+@keyframes fullscreen {
+	from {
+		width: 300px;
+		height: 80px;
+	}
+    to {
+    	width: 100vw;
+    	height: 100vh;
+    }
+}
+.background.fullscreen {
+    height: 100vh;
+    width: 100vw;
+    transform: scale(2, 3);
+
+}
+button:focus {
+	outline: none;
+	border: none;
+}

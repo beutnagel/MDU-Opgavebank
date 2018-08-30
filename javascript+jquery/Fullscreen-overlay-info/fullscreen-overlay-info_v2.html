@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fullscreen overlay onfo button</title>
+	<link rel="stylesheet" type="text/css" href="style_v2.css">
+</head>
+<body>
+<main>
+	<h1>Morphing Button into fullscreen overlay</h1>
+	<p>Click the button to see it expanding into a fullscreen overlay:</p>
+	<button type="button">More Info</button><div class="background"></div>
+	<p>	Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut juccama green bean celtuce collard greens avocado quandong fennel gumbo black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut. Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd winter purslane silver beet rock melon radish asparagus spinach.
+</p>
+<small>Inspired by this <a href="https://tympanus.net/Development/ButtonComponentMorph/index3.html">Codrops</a> experiment.</small>
+</main>
+
+<aside>
+	<h2>About Parsley</h2>
+	<p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
+
+	<p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.</p>
+
+	<p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+	</p>
+	<p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+	</p>
+	<p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+	</p>
+	<p>Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell pepper artichoke.
+	</p>
+	<div class="close">
+		<svg viewbox="0 0 40 40">
+			<path class="close-x" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+		</svg>
+	</div>
+</aside>
+
+
+<script type="text/javascript">
+
+	const button = document.querySelector("button");
+	const main = document.querySelector("main");
+	const aside = document.querySelector("aside");
+	const background = document.querySelector(".background");
+
+	document.querySelector("button").addEventListener("click",() => {
+		console.log("click open");
+		aside.classList.add("show");
+		button.classList.add("show");
+		main.classList.add("hide");
+
+/*		const background = document.createElement("div");
+		background.className = "background";
+		button.appendChild(background);
+*/		background.classList.add("fullscreen");
+
+	});
+
+	document.querySelector(".close").addEventListener("click",() => {
+		console.log("click close");
+		aside.classList.remove("show");
+		button.classList.remove("show");
+		main.classList.remove("hide");
+		background.classList.remove("fullscreen");
+
+	});
+
+
+</script>
+</body>
+</html>

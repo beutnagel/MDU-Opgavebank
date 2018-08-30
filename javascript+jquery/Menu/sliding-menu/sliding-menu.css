@@ -1,0 +1,19 @@
+* {margin: 0;padding: 0;}
+
+.sliding-menu {
+    position: absolute;
+    width: 400px;
+    background-color: #d2d2e4;
+    left: -400px;
+    transition: all 1s;
+}
+
+.sliding-menu li {
+    display: block;
+    list-style-type: none;
+    /* height: 10px; */
+}
+
+.sliding-menu--active {
+	left: 0px;
+}
